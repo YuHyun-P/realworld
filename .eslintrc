@@ -7,6 +7,9 @@
     "jest": true
   },
   "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",

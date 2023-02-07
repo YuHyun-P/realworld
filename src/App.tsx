@@ -18,8 +18,9 @@ function App(): ReactElement {
       <h1>Vite + React</h1>
       <div className="card">
         <button
+          type="button"
           onClick={() => {
-            setCount((count) => count + 1);
+            setCount((prevCount) => prevCount + 1);
           }}
         >
           count is {count}
