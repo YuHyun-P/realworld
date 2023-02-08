@@ -16,8 +16,8 @@ function Router(): ReactElement {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="settings " element={<Settings />} />
-        <Route path="editor/:articleSlug" element={<Editor />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="editor/:articleSlug?" element={<Editor />} />
         <Route path="article/:articleSlug" element={<Article />} />
         <Route path="profile/:username/favorites?" element={<Profile />} />
         <Route path="*" element={<Navigate replace to="/" />} />
