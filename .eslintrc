@@ -41,7 +41,8 @@
   ],
   "rules": {
     // turn on errors for missing imports
-    "import/no-unresolved": "error"
+    "import/no-unresolved": "error",
+    "@typescript-eslint/consistent-type-definitions": "off"
   },
   "settings": {
     "react": {
