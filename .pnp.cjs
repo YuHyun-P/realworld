@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:5.51.0"],\
             ["@typescript-eslint/parser", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:5.51.0"],\
             ["@vitejs/plugin-react", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:3.1.0"],\
+            ["axios", "npm:1.3.2"],\
             ["eslint", "npm:8.33.0"],\
             ["eslint-config-airbnb", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:19.0.4"],\
             ["eslint-config-airbnb-typescript", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:17.0.0"],\
@@ -2874,6 +2875,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["axios", [\
+        ["npm:1.3.2", {\
+          "packageLocation": "./.yarn/cache/axios-npm-1.3.2-e60543899f-9791af75a6.zip/node_modules/axios/",\
+          "packageDependencies": [\
+            ["axios", "npm:1.3.2"],\
+            ["follow-redirects", "virtual:e60543899fd705bd5f850d61bc1194b1bf7a80a922cb114420112d5561895397647171575ef119a8decf292183f1806d99bf972caa13adcdef0a1056caa42cb3#npm:1.15.2"],\
+            ["form-data", "npm:4.0.0"],\
+            ["proxy-from-env", "npm:1.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["axobject-query", [\
         ["npm:3.1.1", {\
           "packageLocation": "./.yarn/cache/axobject-query-npm-3.1.1-13705ce3c1-c12a5da10d.zip/node_modules/axobject-query/",\
@@ -5107,6 +5120,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/flatted-npm-3.2.7-0da10b7c56-427633049d.zip/node_modules/flatted/",\
           "packageDependencies": [\
             ["flatted", "npm:3.2.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["follow-redirects", [\
+        ["npm:1.15.2", {\
+          "packageLocation": "./.yarn/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
+          "packageDependencies": [\
+            ["follow-redirects", "npm:1.15.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:e60543899fd705bd5f850d61bc1194b1bf7a80a922cb114420112d5561895397647171575ef119a8decf292183f1806d99bf972caa13adcdef0a1056caa42cb3#npm:1.15.2", {\
+          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-7a7a9ff787/0/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
+          "packageDependencies": [\
+            ["follow-redirects", "virtual:e60543899fd705bd5f850d61bc1194b1bf7a80a922cb114420112d5561895397647171575ef119a8decf292183f1806d99bf972caa13adcdef0a1056caa42cb3#npm:1.15.2"],\
+            ["@types/debug", null],\
+            ["debug", null]\
+          ],\
+          "packagePeers": [\
+            "@types/debug",\
+            "debug"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8193,6 +8228,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["proxy-from-env", [\
+        ["npm:1.1.0", {\
+          "packageLocation": "./.yarn/cache/proxy-from-env-npm-1.1.0-c13d07f26b-ed7fcc2ba0.zip/node_modules/proxy-from-env/",\
+          "packageDependencies": [\
+            ["proxy-from-env", "npm:1.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["psl", [\
         ["npm:1.9.0", {\
           "packageLocation": "./.yarn/cache/psl-npm-1.9.0-a546edad1a-20c4277f64.zip/node_modules/psl/",\
@@ -8417,6 +8461,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:5.51.0"],\
             ["@typescript-eslint/parser", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:5.51.0"],\
             ["@vitejs/plugin-react", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:3.1.0"],\
+            ["axios", "npm:1.3.2"],\
             ["eslint", "npm:8.33.0"],\
             ["eslint-config-airbnb", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:19.0.4"],\
             ["eslint-config-airbnb-typescript", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:17.0.0"],\
