@@ -8,7 +8,7 @@ export interface User {
 
 export interface Profile {
   username: string;
-  bio: string;
+  bio: string | null;
   image: string;
   following: boolean;
 }
