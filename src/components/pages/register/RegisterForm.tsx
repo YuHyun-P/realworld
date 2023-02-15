@@ -1,12 +1,12 @@
 import { type FormEventHandler, type ReactElement } from "react";
 import Input from "~/components/common/Input";
 
-interface LoginFormProps {
+interface RegisterFormProps {
   onSubmit: FormEventHandler<HTMLFormElement>;
   disabled: boolean;
 }
 
-function LoginForm({ onSubmit, disabled }: LoginFormProps): ReactElement {
+function RegisterForm({ onSubmit, disabled }: RegisterFormProps): ReactElement {
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     onSubmit(e);
@@ -14,6 +14,12 @@ function LoginForm({ onSubmit, disabled }: LoginFormProps): ReactElement {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        placeholder="Your Name"
+        name="username"
+        disabled={disabled}
+      />
       <Input
         type="email"
         placeholder="Email"
@@ -31,10 +37,10 @@ function LoginForm({ onSubmit, disabled }: LoginFormProps): ReactElement {
         type="submit"
         disabled={disabled}
       >
-        Sign in
+        Sign up
       </button>
     </form>
   );
 }
 
-export default LoginForm;
+export default RegisterForm;
