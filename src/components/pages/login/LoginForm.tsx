@@ -14,7 +14,12 @@ function LoginForm({ onSubmit, disabled }: LoginFormProps): ReactElement {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input type="text" placeholder="Email" name="email" disabled={disabled} />
+      <Input
+        type="email"
+        placeholder="Email"
+        name="email"
+        disabled={disabled}
+      />
       <Input
         type="password"
         placeholder="Password"
