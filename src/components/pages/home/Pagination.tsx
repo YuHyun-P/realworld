@@ -8,7 +8,7 @@ interface PaginationProps {
 
 function Pagination({ total, onChange }: PaginationProps): ReactElement {
   const [current, setCurrent] = useState(1);
-  const handleClick = (page: number): void => {
+  const handleClickWrapper = (page: number) => (): void => {
     onChange(page);
     setCurrent(page);
   };
@@ -23,9 +23,7 @@ function Pagination({ total, onChange }: PaginationProps): ReactElement {
           >
             <Link
               to="/"
-              onClick={() => {
-                handleClick(index + 1);
-              }}
+              onClick={handleClickWrapper(index + 1)}
               className="page-link"
             >
               {index + 1}

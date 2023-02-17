@@ -7,7 +7,7 @@ interface FeedNavProps {
 }
 
 function FeedNav({ current, onChange }: FeedNavProps): ReactElement {
-  const handleChange = (feed: string): void => {
+  const handleChangeWrapper = (feed: string) => (): void => {
     onChange(feed);
   };
   return (
@@ -17,9 +17,7 @@ function FeedNav({ current, onChange }: FeedNavProps): ReactElement {
           <Link
             className="nav-link disabled"
             to="/"
-            onClick={() => {
-              handleChange("user");
-            }}
+            onClick={handleChangeWrapper("user")}
           >
             Your Feed
           </Link>
@@ -28,9 +26,7 @@ function FeedNav({ current, onChange }: FeedNavProps): ReactElement {
           <Link
             className="nav-link"
             to="/"
-            onClick={() => {
-              handleChange("global");
-            }}
+            onClick={handleChangeWrapper("global")}
           >
             Global Feed
           </Link>
@@ -39,9 +35,7 @@ function FeedNav({ current, onChange }: FeedNavProps): ReactElement {
           <Link
             className="nav-link active"
             to="/"
-            onClick={() => {
-              handleChange("tag");
-            }}
+            onClick={handleChangeWrapper("tag")}
           >
             <i className="ion-pound" /> tag
           </Link>

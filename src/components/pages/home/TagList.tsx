@@ -8,7 +8,7 @@ interface TagListProps {
 }
 
 function TagList({ tagList, onClick }: TagListProps): ReactElement {
-  const handleClick = (tag: string): void => {
+  const handleClickWrapper = (tag: string) => (): void => {
     onClick(tag);
   };
   return (
@@ -18,9 +18,7 @@ function TagList({ tagList, onClick }: TagListProps): ReactElement {
           to="/"
           key={tag}
           className="tag-pill tag-default"
-          onClick={() => {
-            handleClick(tag);
-          }}
+          onClick={handleClickWrapper(tag)}
         >
           {tag}
         </Link>
