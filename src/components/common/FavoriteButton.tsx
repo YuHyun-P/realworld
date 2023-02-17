@@ -40,7 +40,7 @@ function FavoriteButton({
 
   return (
     <button
-      className={`btn btn-sm pull-xs-right ${
+      className={`btn btn-sm ${compact ? "pull-xs-right" : ""} ${
         favorite.favorited ? "btn-primary" : "btn-outline-primary"
       }`}
       type="button"
@@ -50,10 +50,14 @@ function FavoriteButton({
       <i className="ion-heart" />{" "}
       {!compact && (
         <span>
-          {favorite.favorited ? "Favorite Article" : "Unfavorite Article"}{" "}
+          {favorite.favorited ? "Unfavorite Article" : "Favorite Article"}{" "}
         </span>
       )}
-      {favorite.favoritesCount}
+      {compact ? (
+        favorite.favoritesCount
+      ) : (
+        <span className="counter">({favorite.favoritesCount})</span>
+      )}
     </button>
   );
 }
