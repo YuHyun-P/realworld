@@ -2,6 +2,7 @@ import { type ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { type Article } from "~/types";
 import FavoriteButton from "~/components/common/FavoriteButton";
+import { formatDate } from "~/utils/formater";
 import PreviewTagList from "./PreviewTagList";
 
 interface PreviewItemProps {
@@ -19,7 +20,7 @@ function PreviewItem({ article }: PreviewItemProps): ReactElement {
           <Link to={`/profile/${article.author.username}`} className="author">
             {article.author.username}
           </Link>
-          <span className="date">{article.createdAt}</span>
+          <span className="date">{formatDate(article.createdAt)}</span>
         </div>
         <FavoriteButton
           compact

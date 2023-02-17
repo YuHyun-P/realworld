@@ -1,6 +1,7 @@
 import { type ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { type Article } from "~/types";
+import { formatDate } from "~/utils/formater";
 import FollowButton from "../../common/FollowButton";
 import FavoriteButton from "../../common/FavoriteButton";
 
@@ -18,7 +19,7 @@ function ArticleMeta({ article }: ArticleMetaProps): ReactElement {
         <Link to={`/profile/${article.author.username}`} className="author">
           {article.author.username}
         </Link>
-        <span className="date">{article.createdAt}</span>
+        <span className="date">{formatDate(article.createdAt)}</span>
       </div>
       <FollowButton
         defaultValue={article.author.following}

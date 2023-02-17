@@ -1,6 +1,7 @@
 import { type ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { type Comment } from "~/types";
+import { formatDate } from "~/utils/formater";
 import DeleteButton from "./DeleteButton";
 
 interface CommentItemProps {
@@ -32,7 +33,7 @@ function CommentItem({ comment, onDelete }: CommentItemProps): ReactElement {
         >
           {comment.author.username}
         </Link>
-        <span className="date-posted">{comment.createdAt}</span>
+        <span className="date-posted">{formatDate(comment.createdAt)}</span>
         <DeleteButton onDelete={onDelete} />
       </div>
     </div>
