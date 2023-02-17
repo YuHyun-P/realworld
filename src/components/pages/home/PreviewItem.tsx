@@ -23,11 +23,12 @@ function PreviewItem({ article }: PreviewItemProps): ReactElement {
         </div>
         <FavoriteButton
           compact
-          favorited={article.favorited}
-          favoritesCount={article.favoritesCount}
+          slug={article.slug}
+          defaultValue={article.favorited}
+          defaultCount={article.favoritesCount}
         />
       </div>
-      <Link to={`/article/${article.slug} `} className="preview-link">
+      <Link to={`/article/${article.slug}`} className="preview-link">
         <h1>{article.title}</h1>
         <p>{article.description}</p>
         <span>Read more...</span>
