@@ -1,13 +1,15 @@
-import { useState, type ReactElement } from "react";
+import { useEffect, useState, type ReactElement } from "react";
 
 interface FollowButtonProps {
   username: string;
   defaultValue: boolean;
+  onToggleFollow: (value: boolean) => void;
 }
 
 function FollowButton({
   username,
   defaultValue,
+  onToggleFollow,
 }: FollowButtonProps): ReactElement {
   const [follow, setFollow] = useState({
     isLoading: false,
@@ -27,8 +29,20 @@ function FollowButton({
         isLoading: false,
         following: !prev.following,
       }));
+      onToggleFollow(!follow.following);
     }, 1000);
   };
+
+  useEffect(() => {
+    if (follow.isLoading) {
+      return;
+    }
+
+    setFollow({
+      ...follow,
+      following: defaultValue,
+    });
+  }, [defaultValue]);
 
   return (
     <button

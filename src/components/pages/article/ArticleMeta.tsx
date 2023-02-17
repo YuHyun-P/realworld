@@ -7,9 +7,15 @@ import FavoriteButton from "../../common/FavoriteButton";
 
 interface ArticleMetaProps {
   article: Article;
+  onToggleFollow: (value: boolean) => void;
+  onToggleFavorite: (value: boolean) => void;
 }
 
-function ArticleMeta({ article }: ArticleMetaProps): ReactElement {
+function ArticleMeta({
+  article,
+  onToggleFollow,
+  onToggleFavorite,
+}: ArticleMetaProps): ReactElement {
   return (
     <div className="article-meta">
       <Link to={`/profile/${article.author.username}`}>
@@ -24,12 +30,14 @@ function ArticleMeta({ article }: ArticleMetaProps): ReactElement {
       <FollowButton
         defaultValue={article.author.following}
         username={article.author.username}
+        onToggleFollow={onToggleFollow}
       />
       &nbsp;
       <FavoriteButton
         slug={article.slug}
         defaultValue={article.favorited}
         defaultCount={article.favoritesCount}
+        onToggleFavorite={onToggleFavorite}
       />
     </div>
   );

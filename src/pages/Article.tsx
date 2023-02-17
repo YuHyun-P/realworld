@@ -21,13 +21,29 @@ function Article(): ReactElement {
   const handleDelete = (id: number): void => {
     console.log(article.slug, id);
   };
+  const handleToggleFollow = (value: boolean): void => {
+    console.log(article.author.username, value);
+    setArticle({ ...article, author: { ...article.author, following: value } });
+  };
+  const handleToggleFavorite = (value: boolean): void => {
+    console.log(article.slug, value);
+    setArticle({
+      ...article,
+      favorited: value,
+      favoritesCount: article.favoritesCount + (value ? 1 : -1),
+    });
+  };
 
   return (
     <div className="article-page">
       <div className="banner">
         <div className="container">
           <h1>{article.title}</h1>
-          <ArticleMeta article={article} />
+          <ArticleMeta
+            article={article}
+            onToggleFollow={handleToggleFollow}
+            onToggleFavorite={handleToggleFavorite}
+          />
         </div>
       </div>
 
@@ -42,7 +58,11 @@ function Article(): ReactElement {
         <hr />
 
         <div className="article-actions">
-          <ArticleMeta article={article} />
+          <ArticleMeta
+            article={article}
+            onToggleFollow={handleToggleFollow}
+            onToggleFavorite={handleToggleFavorite}
+          />
         </div>
 
         <div className="row">
