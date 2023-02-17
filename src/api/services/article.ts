@@ -53,14 +53,10 @@ const articleApi = {
     return await instance.delete(`/articles/${slug}`);
   },
   async favorite(slug: string) {
-    return await instance.post<ArticleListResponse>(
-      `/articles/${slug}/favorite`
-    );
+    return await instance.post<ArticleResponse>(`/articles/${slug}/favorite`);
   },
   async unfavorite(slug: string) {
-    return await instance.delete<ArticleListResponse>(
-      `/articles/${slug}/favorite`
-    );
+    return await instance.delete<ArticleResponse>(`/articles/${slug}/favorite`);
   },
 };
 
