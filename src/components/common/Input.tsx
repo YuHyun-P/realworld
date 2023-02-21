@@ -12,6 +12,7 @@ interface InputProps {
   name?: string;
   id?: string;
   disabled?: boolean;
+  large?: boolean;
 }
 
 function Input({
@@ -22,11 +23,12 @@ function Input({
   name,
   id,
   disabled,
+  large = false,
 }: InputProps): ReactElement {
   return (
     <fieldset className="form-group" disabled={disabled}>
       <input
-        className="form-control form-control-lg"
+        className={`form-control ${large ? "form-control-lg" : ""}`}
         type={type}
         placeholder={placeholder}
         value={value}

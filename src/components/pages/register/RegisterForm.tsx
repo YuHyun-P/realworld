@@ -19,18 +19,21 @@ function RegisterForm({ onSubmit, disabled }: RegisterFormProps): ReactElement {
         placeholder="Your Name"
         name="username"
         disabled={disabled}
+        large
       />
       <Input
         type="email"
         placeholder="Email"
         name="email"
         disabled={disabled}
+        large
       />
       <Input
         type="password"
         placeholder="Password"
         name="password"
         disabled={disabled}
+        large
       />
       <button
         className="btn btn-lg btn-primary pull-xs-right"
