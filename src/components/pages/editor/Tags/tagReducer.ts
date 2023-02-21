@@ -1,6 +1,6 @@
 import { type Tag } from "~/types";
 
-export type TagState = Tag[];
+type TagState = Tag[];
 
 type TagAction =
   | { type: "ADD"; payload: Tag }

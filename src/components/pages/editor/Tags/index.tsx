@@ -34,7 +34,6 @@ function Tags({
     }
 
     onAdd(e.currentTarget.value);
-    onChange("");
   };
   const handleDelete = (payload: Tag): void => {
     onDelete(payload);

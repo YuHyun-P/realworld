@@ -1,5 +1,8 @@
 import { useReducer, useState, useCallback } from "react";
-import { initialState, tagReducer } from "~/components/pages/editor/tagReducer";
+import {
+  initialState,
+  tagReducer,
+} from "~/components/pages/editor/Tags/tagReducer";
 import { type Tag } from "~/types";
 
 type UseTagInputReturn = {
@@ -26,6 +29,7 @@ function useTagInput(): UseTagInputReturn {
       }
 
       dispatch({ type: "ADD", payload: trimmedTag });
+      setTag("");
     },
     [tagList]
   );
