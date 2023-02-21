@@ -1,9 +1,8 @@
 import { type ReactElement } from "react";
-import { Link } from "react-router-dom";
 import { type Article } from "~/types";
-import { formatDate } from "~/utils/formatter";
-import FollowButton from "../../common/FollowButton";
-import FavoriteButton from "../../common/FavoriteButton";
+import FollowButton from "~/components/common/FollowButton";
+import FavoriteButton from "~/components/common/FavoriteButton";
+import MetaProfile from "./MetaProfile";
 
 interface ArticleMetaProps {
   article: Article;
@@ -18,15 +17,11 @@ function ArticleMeta({
 }: ArticleMetaProps): ReactElement {
   return (
     <div className="article-meta">
-      <Link to={`/profile/${article.author.username}`}>
-        <img src={article.author.image} alt="" />{" "}
-      </Link>
-      <div className="info">
-        <Link to={`/profile/${article.author.username}`} className="author">
-          {article.author.username}
-        </Link>
-        <span className="date">{formatDate(article.createdAt)}</span>
-      </div>
+      <MetaProfile
+        username={article.author.username}
+        image={article.author.image}
+        createdAt={article.createdAt}
+      />
       <FollowButton
         defaultValue={article.author.following}
         username={article.author.username}

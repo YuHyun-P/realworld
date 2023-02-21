@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import ArticleMeta from "~/components/pages/article/ArticleMeta";
 import AuthNotice from "~/components/pages/article/AuthNotice";
 import CommentForm from "~/components/pages/article/CommentForm";
+import CommentList from "~/components/pages/article/CommentList";
+import Content from "~/components/pages/article/Content";
 import articles from "~/test_data/articles";
 import comments from "~/test_data/comments";
 import user from "~/test_data/user";
-import CommentList from "../components/pages/article/CommentList";
-import PreviewTagList from "../components/pages/home/PreviewTagList";
 
 function Article(): ReactElement {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -48,12 +48,7 @@ function Article(): ReactElement {
       </div>
 
       <div className="container page">
-        <div className="row article-content">
-          <div className="col-md-12">
-            <p>{article.body}</p>
-            <PreviewTagList tagList={article.tagList} />
-          </div>
-        </div>
+        <Content body={article.body} tagList={article.tagList} />
 
         <hr />
 
