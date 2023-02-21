@@ -7,6 +7,8 @@ interface TextareaProps {
   id?: string;
   disabled?: boolean;
   value?: string | number | string[];
+  large?: boolean;
+  defaultValue?: string | number | string[];
   onChange?: ChangeEventHandler<HTMLTextAreaElement>;
 }
 
@@ -17,18 +19,21 @@ function Textarea({
   id,
   disabled,
   value,
+  large = false,
+  defaultValue,
   onChange,
 }: TextareaProps): ReactElement {
   return (
     <fieldset className="form-group" disabled={disabled}>
       <textarea
-        className="form-control"
+        className={`form-control ${large ? "form-control-lg" : ""}`}
         rows={rows}
         placeholder={placeholder}
         name={name}
         id={id}
         value={value}
         onChange={onChange}
+        defaultValue={defaultValue}
       />
     </fieldset>
   );
