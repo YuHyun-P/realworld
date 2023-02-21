@@ -19,12 +19,14 @@ function LoginForm({ onSubmit, disabled }: LoginFormProps): ReactElement {
         placeholder="Email"
         name="email"
         disabled={disabled}
+        large
       />
       <Input
         type="password"
         placeholder="Password"
         name="password"
         disabled={disabled}
+        large
       />
       <button
         className="btn btn-lg btn-primary pull-xs-right"
