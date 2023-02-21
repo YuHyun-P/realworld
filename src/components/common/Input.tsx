@@ -8,22 +8,24 @@ interface InputProps {
   type: HTMLInputTypeAttribute;
   placeholder: string;
   value?: string | number;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
   name?: string;
   id?: string;
   disabled?: boolean;
   large?: boolean;
+  defaultValue?: string | number;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 function Input({
   type,
   placeholder,
   value,
-  onChange,
   name,
   id,
   disabled,
   large = false,
+  defaultValue,
+  onChange,
 }: InputProps): ReactElement {
   return (
     <fieldset className="form-group" disabled={disabled}>
@@ -35,6 +37,7 @@ function Input({
         onChange={onChange}
         name={name}
         id={id}
+        defaultValue={defaultValue}
       />
     </fieldset>
   );
