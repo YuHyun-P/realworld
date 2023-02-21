@@ -1,7 +1,7 @@
 import { type ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { type Article } from "~/types";
-import { formatDate } from "~/utils/formater";
+import { formatDate } from "~/utils/formatter";
 import FollowButton from "../../common/FollowButton";
 import FavoriteButton from "../../common/FavoriteButton";
 

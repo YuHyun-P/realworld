@@ -2,7 +2,7 @@ import { type ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { type Article } from "~/types";
 import FavoriteButton from "~/components/common/FavoriteButton";
-import { formatDate } from "~/utils/formater";
+import { formatDate } from "~/utils/formatter";
 import PreviewTagList from "./PreviewTagList";
 
 interface PreviewItemProps {
