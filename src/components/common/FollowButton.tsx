@@ -3,13 +3,15 @@ import { useEffect, useState, type ReactElement } from "react";
 interface FollowButtonProps {
   username: string;
   defaultValue: boolean;
-  onToggleFollow: (value: boolean) => void;
+  isAction?: boolean;
+  onToggleFollow?: (value: boolean) => void;
 }
 
 function FollowButton({
   username,
   defaultValue,
   onToggleFollow,
+  isAction = false,
 }: FollowButtonProps): ReactElement {
   const [follow, setFollow] = useState({
     isLoading: false,
@@ -29,7 +31,9 @@ function FollowButton({
         isLoading: false,
         following: !prev.following,
       }));
-      onToggleFollow(!follow.following);
+      if (onToggleFollow !== undefined) {
+        onToggleFollow(!follow.following);
+      }
     }, 1000);
   };
 
@@ -48,7 +52,7 @@ function FollowButton({
     <button
       className={`btn btn-sm ${
         follow.following ? "btn-secondary" : "btn-outline-secondary"
-      }`}
+      } ${isAction ? "action-btn" : ""}`}
       type="button"
       onClick={handleClick}
       disabled={follow.isLoading}
