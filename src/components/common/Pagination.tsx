@@ -22,7 +22,7 @@ function Pagination({ total, onChange }: PaginationProps): ReactElement {
             className={current === index + 1 ? "page-item active" : "page-item"}
           >
             <Link
-              to="/"
+              to="."
               onClick={handleClickWrapper(index + 1)}
               className="page-link"
             >
