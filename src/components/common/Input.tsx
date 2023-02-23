@@ -1,40 +1,22 @@
-import {
-  type ChangeEventHandler,
-  type HTMLInputTypeAttribute,
-  type ReactElement,
-} from "react";
+import { type InputHTMLAttributes, type ReactElement } from "react";
 
-interface InputProps {
-  type: HTMLInputTypeAttribute;
-  placeholder: string;
-  value?: string | number;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
-  name?: string;
-  id?: string;
-  disabled?: boolean;
+interface InputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "className"> {
   large?: boolean;
+  disabled?: boolean;
 }
 
 function Input({
-  type,
-  placeholder,
-  value,
-  onChange,
-  name,
-  id,
-  disabled,
   large = false,
+  disabled = false,
+  ...rest
 }: InputProps): ReactElement {
   return (
     <fieldset className="form-group" disabled={disabled}>
       <input
         className={`form-control ${large ? "form-control-lg" : ""}`}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        name={name}
-        id={id}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...rest}
       />
     </fieldset>
   );

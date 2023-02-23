@@ -1,34 +1,22 @@
-import { type ChangeEventHandler, type ReactElement } from "react";
+import { type TextareaHTMLAttributes, type ReactElement } from "react";
 
-interface TextareaProps {
-  rows: number;
-  placeholder: string;
-  name?: string;
-  id?: string;
+interface TextareaProps
+  extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "className"> {
+  large?: boolean;
   disabled?: boolean;
-  value?: string | number | string[];
-  onChange?: ChangeEventHandler<HTMLTextAreaElement>;
 }
 
 function Textarea({
-  rows,
-  placeholder,
-  name,
-  id,
-  disabled,
-  value,
-  onChange,
+  large = false,
+  disabled = false,
+  ...rest
 }: TextareaProps): ReactElement {
   return (
     <fieldset className="form-group" disabled={disabled}>
       <textarea
-        className="form-control"
-        rows={rows}
-        placeholder={placeholder}
-        name={name}
-        id={id}
-        value={value}
-        onChange={onChange}
+        className={`form-control ${large ? "form-control-lg" : ""}`}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...rest}
       />
     </fieldset>
   );
