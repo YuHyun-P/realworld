@@ -1,7 +1,7 @@
 import { type ReactElement } from "react";
 import FeedNav from "~/components/pages/home/FeedNav";
-import Pagination from "~/components/pages/home/Pagination";
-import PreviewList from "~/components/pages/home/PreviewList";
+import Pagination from "~/components/common/Pagination";
+import PreviewList from "~/components/common/PreviewList";
 import articles from "~/test_data/articles";
 import tags from "~/test_data/tags";
 import Banner from "../components/pages/home/Banner";

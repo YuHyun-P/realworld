@@ -1,6 +1,6 @@
 import { type ReactElement } from "react";
+import PreviewTagList from "~/components/common/PreviewList/PreviewTagList";
 import { type Tag } from "~/types";
-import PreviewTagList from "../home/PreviewTagList";
 
 interface ContentProps {
   body: string;
