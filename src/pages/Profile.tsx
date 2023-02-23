@@ -10,6 +10,11 @@ import PreviewList from "~/components/common/PreviewList";
 function Profile(): ReactElement | null {
   const { username } = useParams();
 
+  const handleChangeTab = (tag: string): void => {
+    // api
+    console.log(tag);
+  };
+
   if (username === undefined) {
     redirect("/");
     return null;
@@ -34,8 +39,10 @@ function Profile(): ReactElement | null {
       <div className="container">
         <div className="row">
           <div className="col-xs-12 col-md-10 offset-md-1">
-            <ArticleNav username={profile.username} />
-
+            <ArticleNav
+              username={profile.username}
+              onChange={handleChangeTab}
+            />
             <PreviewList articles={articles} />
             <Pagination
               total={20}
