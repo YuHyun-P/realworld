@@ -1,5 +1,5 @@
-import { type ReactElement } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { type MouseEventHandler, type ReactElement } from "react";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 const DUMMY_USER = {
   email: "yy@yy",
@@ -10,6 +10,15 @@ const DUMMY_USER = {
 };
 
 function Header(): ReactElement {
+  const location = useLocation();
+
+  const handleClickNewArticle: MouseEventHandler = (e): void => {
+    const editorRegexp = /^\/editor(\/[^/]+)?$/i;
+    if (editorRegexp.test(location.pathname)) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <nav className="navbar navbar-light">
       <div className="container">
@@ -38,7 +47,11 @@ function Header(): ReactElement {
           ) : (
             <>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/editor">
+                <NavLink
+                  className="nav-link"
+                  to="/editor"
+                  onClick={handleClickNewArticle}
+                >
                   <i className="ion-compose" />
                   &nbsp;New Article
                 </NavLink>
