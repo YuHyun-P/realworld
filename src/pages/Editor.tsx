@@ -1,17 +1,26 @@
-import { useRef, useState, type ReactElement } from "react";
+import { useRef, useState, type ReactElement, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Input from "~/components/common/Input";
 import Textarea from "~/components/common/Textarea";
 import useTagInput from "~/hooks/useTagInput";
+import { type Article } from "~/types";
 import Tags from "../components/pages/editor/Tags";
 import ErrorMessage from "../components/common/ErrorMessage";
+import articles from "../test_data/articles";
 
 function Editor(): ReactElement {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { articleSlug } = useParams();
-  const { tag, tagList, handleChangeTag, handleAddTag, handleDeleteTag } =
-    useTagInput();
+  const {
+    tag,
+    tagList,
+    setTagList,
+    handleChangeTag,
+    handleAddTag,
+    handleDeleteTag,
+  } = useTagInput();
   const [isLoading, setIsLoading] = useState(false);
+  const [article, setArticle] = useState<Article | null>(null);
 
   const form = useRef<HTMLFormElement>(null);
 
@@ -35,6 +44,15 @@ function Editor(): ReactElement {
     }, 1000);
   };
 
+  useEffect(() => {
+    if (articleSlug === undefined) {
+      return;
+    }
+    // api
+    setArticle(articles[0]);
+    setTagList(articles[0].tagList);
+  }, [articleSlug, setTagList]);
+
   return (
     <div className="editor-page">
       <div className="container page">
@@ -49,17 +67,20 @@ function Editor(): ReactElement {
                   placeholder="Article Title"
                   large
                   name="articleTitle"
+                  defaultValue={article?.title}
                 />
                 <Input
                   type="text"
                   placeholder="What's this article about?"
                   name="description"
+                  defaultValue={article?.description}
                 />
 
                 <Textarea
                   rows={8}
                   placeholder="Write your article (in markdown)"
                   name="body"
+                  defaultValue={article?.body}
                 />
 
                 <Tags
