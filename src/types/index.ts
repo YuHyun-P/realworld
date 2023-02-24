@@ -34,3 +34,5 @@ export interface Comment {
 }
 
 export type Tag = string;
+
+export type ErrorResponse = { errors: Record<string, string> };
