@@ -1,16 +1,11 @@
 import { type MouseEventHandler, type ReactElement } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-
-const DUMMY_USER = {
-  email: "yy@yy",
-  username: "yyy1",
-  bio: null,
-  image: "https://api.realworld.io/images/smiley-cyrus.jpeg",
-  token: "",
-};
+import { useRecoilValue } from "recoil";
+import userAtom from "~/recoil/atoms/userState";
 
 function Header(): ReactElement {
   const location = useLocation();
+  const user = useRecoilValue(userAtom);
 
   const handleClickNewArticle: MouseEventHandler = (e): void => {
     const editorRegexp = /^\/editor(\/[^/]+)?$/i;
@@ -31,7 +26,7 @@ function Header(): ReactElement {
               Home
             </NavLink>
           </li>
-          {DUMMY_USER === null ? (
+          {user === null ? (
             <>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/login">
@@ -63,12 +58,9 @@ function Header(): ReactElement {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink
-                  className="nav-link"
-                  to={`/profile/${DUMMY_USER.username}`}
-                >
-                  <img className="user-pic" src={DUMMY_USER.image} alt="" />
-                  {DUMMY_USER.username}
+                <NavLink className="nav-link" to={`/profile/${user.username}`}>
+                  <img className="user-pic" src={user.image} alt="" />
+                  {user.username}
                 </NavLink>
               </li>
             </>
