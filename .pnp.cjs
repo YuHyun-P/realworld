@@ -63,6 +63,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:18.2.0"],\
             ["react-router-dom", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:6.8.1"],\
+            ["recoil", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:0.7.6"],\
             ["ts-jest", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:29.0.5"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"],\
             ["vite", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:4.1.1"]\
@@ -5494,6 +5495,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["hamt_plus", [\
+        ["npm:1.0.2", {\
+          "packageLocation": "./.yarn/cache/hamt_plus-npm-1.0.2-67a52ee1df-af26ea32db.zip/node_modules/hamt_plus/",\
+          "packageDependencies": [\
+            ["hamt_plus", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["hard-rejection", [\
         ["npm:2.1.0", {\
           "packageLocation": "./.yarn/cache/hard-rejection-npm-2.1.0-a80f2a977d-7baaf80a0c.zip/node_modules/hard-rejection/",\
@@ -8485,11 +8495,43 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:18.2.0"],\
             ["react-router-dom", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:6.8.1"],\
+            ["recoil", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:0.7.6"],\
             ["ts-jest", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:29.0.5"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"],\
             ["vite", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:4.1.1"]\
           ],\
           "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["recoil", [\
+        ["npm:0.7.6", {\
+          "packageLocation": "./.yarn/cache/recoil-npm-0.7.6-6f8de04e3d-2b31dd29a7.zip/node_modules/recoil/",\
+          "packageDependencies": [\
+            ["recoil", "npm:0.7.6"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:0.7.6", {\
+          "packageLocation": "./.yarn/__virtual__/recoil-virtual-347ddebce6/0/cache/recoil-npm-0.7.6-6f8de04e3d-2b31dd29a7.zip/node_modules/recoil/",\
+          "packageDependencies": [\
+            ["recoil", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:0.7.6"],\
+            ["@types/react", "npm:18.0.27"],\
+            ["@types/react-dom", "npm:18.0.10"],\
+            ["@types/react-native", null],\
+            ["hamt_plus", "npm:1.0.2"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:18.2.0"],\
+            ["react-native", null]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react-native",\
+            "@types/react",\
+            "react-dom",\
+            "react-native",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["redent", [\
