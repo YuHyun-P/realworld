@@ -49,6 +49,12 @@
       {
         "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
       }
+    ],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
     ]
   },
   "settings": {
