@@ -1,13 +1,24 @@
-import { type ReactElement } from "react";
+import { type ReactElement, useState } from "react";
 import FeedNav from "~/components/pages/home/FeedNav";
-import Pagination from "~/components/pages/home/Pagination";
-import PreviewList from "~/components/pages/home/PreviewList";
+import Pagination from "~/components/common/Pagination";
+import PreviewList from "~/components/common/PreviewList";
 import articles from "~/test_data/articles";
 import tags from "~/test_data/tags";
 import Banner from "../components/pages/home/Banner";
 import TagList from "../components/pages/home/TagList";
 
 function Home(): ReactElement {
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  const handleChangeFeed = (feed: string): void => {
+    setSelectedTag(null);
+    // api
+  };
+  const handleClickTag = (tag: string): void => {
+    setSelectedTag(tag);
+    // api
+  };
+
   return (
     <div className="home-page">
       <Banner />
@@ -16,10 +27,9 @@ function Home(): ReactElement {
         <div className="row">
           <div className="col-md-9">
             <FeedNav
-              current="global"
-              onChange={(feed) => {
-                console.log(feed);
-              }}
+              defaultTag="global"
+              onChange={handleChangeFeed}
+              tag={selectedTag}
             />
             <PreviewList articles={articles} />
             <Pagination
@@ -33,12 +43,7 @@ function Home(): ReactElement {
           <div className="col-md-3">
             <div className="sidebar">
               <p>Popular Tags</p>
-              <TagList
-                tagList={tags}
-                onClick={(tag) => {
-                  console.log(tag);
-                }}
-              />
+              <TagList tagList={tags} onClick={handleClickTag} />
             </div>
           </div>
         </div>

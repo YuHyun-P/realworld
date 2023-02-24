@@ -1,46 +1,30 @@
 import { type ReactElement } from "react";
-import { Link } from "react-router-dom";
+import TabItem from "~/components/common/Tabs/TabItem";
+import Tabs from "~/components/common/Tabs/index";
+import { type Tag } from "~/types";
 
 interface FeedNavProps {
-  current: string;
+  tag: Tag | null;
+  defaultTag: string;
   onChange: (feed: string) => void;
 }
 
-function FeedNav({ current, onChange }: FeedNavProps): ReactElement {
-  const handleChangeWrapper = (feed: string) => (): void => {
-    onChange(feed);
-  };
+function FeedNav({ tag, defaultTag, onChange }: FeedNavProps): ReactElement {
   return (
     <div className="feed-toggle">
-      <ul className="nav nav-pills outline-active">
-        <li className="nav-item">
-          <Link
-            className="nav-link disabled"
-            to="/"
-            onClick={handleChangeWrapper("user")}
-          >
-            Your Feed
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            className="nav-link"
-            to="/"
-            onClick={handleChangeWrapper("global")}
-          >
-            Global Feed
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            className="nav-link active"
-            to="/"
-            onClick={handleChangeWrapper("tag")}
-          >
-            <i className="ion-pound" /> tag
-          </Link>
-        </li>
-      </ul>
+      <Tabs defaultValue={tag ?? defaultTag} onChange={onChange} key={tag}>
+        <TabItem to="/" name="user">
+          Your Feed
+        </TabItem>
+        <TabItem to="/" name="global">
+          Global Feed
+        </TabItem>
+        {tag !== null ? (
+          <TabItem to="/" name={tag}>
+            <i className="ion-pound" /> {tag}
+          </TabItem>
+        ) : null}
+      </Tabs>
     </div>
   );
 }
