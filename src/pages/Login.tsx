@@ -19,7 +19,7 @@ function Login(): ReactElement {
       <p className="text-xs-center">
         <Link to="/register">Need an account?</Link>
       </p>
-      <ErrorMessage message="error" />
+      <ErrorMessage />
       <LoginForm onSubmit={handleSubmit} disabled={false} />
     </AuthPageLayout>
   );

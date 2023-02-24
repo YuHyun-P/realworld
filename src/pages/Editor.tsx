@@ -58,7 +58,7 @@ function Editor(): ReactElement {
       <div className="container page">
         <div className="row">
           <div className="col-md-10 offset-md-1 col-xs-12">
-            <ErrorMessage message="title can't be blank" />
+            <ErrorMessage />
 
             <form ref={form}>
               <fieldset disabled={isLoading}>
