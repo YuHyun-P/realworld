@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:13.4.0"],\
             ["@testing-library/user-event", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:14.4.3"],\
             ["@types/jest", "npm:29.4.0"],\
+            ["@types/node", "npm:18.14.2"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
             ["@types/testing-library__jest-dom", "npm:5.14.5"],\
@@ -2243,6 +2244,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-18.13.0-00f732af8e-4ea10f8802.zip/node_modules/@types/node/",\
           "packageDependencies": [\
             ["@types/node", "npm:18.13.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:18.14.2", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-18.14.2-ba0496d563-53c07e721f.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:18.14.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9231,6 +9239,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:13.4.0"],\
             ["@testing-library/user-event", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:14.4.3"],\
             ["@types/jest", "npm:29.4.0"],\
+            ["@types/node", "npm:18.14.2"],\
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
             ["@types/testing-library__jest-dom", "npm:5.14.5"],\
@@ -10680,7 +10689,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["vite", "virtual:67f878c64af8ed4ed3b7f622d664fd12d71bb644cf7c08c54870b7bfffb6b95eec0f9af0b61b180c5db670b22ade41fdfb64effba548fba3f02c4cf0d5e45b9c#npm:4.1.1"],\
             ["@types/less", null],\
-            ["@types/node", null],\
+            ["@types/node", "npm:18.14.2"],\
             ["@types/sass", null],\
             ["@types/stylus", null],\
             ["@types/sugarss", null],\
