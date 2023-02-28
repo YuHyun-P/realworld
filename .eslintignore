@@ -2,3 +2,4 @@ vite.config.ts
 src/vite-env.d.ts
 jest.config.cjs
 commitlint.config.cjs
+jest.setup.ts
