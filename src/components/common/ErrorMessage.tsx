@@ -1,14 +1,16 @@
 import { type ReactElement } from "react";
 
 interface ErrorMessageProps {
-  message?: string;
+  error?: string[];
 }
 
-function ErrorMessage({ message }: ErrorMessageProps): ReactElement | null {
-  if (message === undefined) return null;
+function ErrorMessage({ error }: ErrorMessageProps): ReactElement | null {
+  if (error === undefined) return null;
   return (
     <ul className="error-messages">
-      <li>{message}</li>
+      {error.map((message) => (
+        <li key={message}>{message}</li>
+      ))}
     </ul>
   );
 }

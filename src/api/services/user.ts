@@ -5,11 +5,11 @@ type LoginUserRequest = {
   email: string;
   password: string;
 };
-type RegisterUserRequest = LoginUserRequest & {
-  password: string;
+export type RegisterUserRequest = LoginUserRequest & {
+  username: string;
 };
 type UpdateUserRequest = Partial<User>;
-type UserResponse = { user: User };
+export type UserResponse = { user: User };
 
 const userApi = {
   async login(payload: LoginUserRequest) {

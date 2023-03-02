@@ -43,7 +43,19 @@
     // turn on errors for missing imports
     "import/no-unresolved": "error",
     "@typescript-eslint/consistent-type-definitions": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
+      }
+    ],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ]
   },
   "settings": {
     "react": {
