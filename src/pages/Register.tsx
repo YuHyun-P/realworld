@@ -1,4 +1,4 @@
-import { type AxiosError, isAxiosError } from "axios";
+import { isAxiosError } from "axios";
 import { type FormEvent, useState, type ReactElement } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
@@ -9,6 +9,7 @@ import ErrorMessage from "~/components/common/ErrorMessage";
 import userAtom from "~/recoil/atoms/userState";
 import { type ErrorResponse } from "~/types";
 import storage from "~/utils/storage";
+import { formatErrorResponse } from "~/utils/formatter";
 
 function Register(): ReactElement {
   const [error, setError] = useState<string[]>();
@@ -67,9 +68,3 @@ function Register(): ReactElement {
 }
 
 export default Register;
-
-function formatErrorResponse(error: AxiosError<ErrorResponse>): string[] {
-  return Object.entries(error.response?.data.errors ?? []).map((message) =>
-    message.join(" ")
-  );
-}
