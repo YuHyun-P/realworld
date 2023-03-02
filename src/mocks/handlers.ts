@@ -1,6 +1,9 @@
 import { rest } from "msw";
 import { BASE_URL } from "~/api/base";
-import { type RegisterUserRequest } from "~/api/services/user";
+import {
+  type LoginUserRequest,
+  type RegisterUserRequest,
+} from "~/api/services/user";
 import user from "~/test_data/user";
 
 // https://github.com/mswjs/msw/issues/397#issuecomment-751230924
@@ -36,6 +39,33 @@ const handlers = [
       })
     );
   }),
+  rest.post<LoginUserRequest>(
+    baseUrl("/users/login"),
+    async (req, res, ctx) => {
+      const {
+        user: { email, password },
+      } = await req.json();
+
+      const errorResponse: Record<string, string> = {};
+      if (email === "") {
+        errorResponse.email = "can't be blank";
+        return await res(ctx.status(422), ctx.json({ errors: errorResponse }));
+      }
+      if (password === "") {
+        errorResponse.password = "can't be blank";
+        return await res(ctx.status(422), ctx.json({ errors: errorResponse }));
+      }
+
+      return await res(
+        ctx.json({
+          user: {
+            ...user,
+            email,
+          },
+        })
+      );
+    }
+  ),
 ];
 
 export default handlers;
