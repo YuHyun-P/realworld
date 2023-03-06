@@ -4,7 +4,7 @@ import {
   type LoginUserRequest,
   type RegisterUserRequest,
 } from "~/api/services/user";
-import user from "~/test_data/user";
+import MOCK_USER from "~/test_data/user";
 
 // https://github.com/mswjs/msw/issues/397#issuecomment-751230924
 export const baseUrl = (path: string): string => BASE_URL + path;
@@ -32,7 +32,7 @@ const handlers = [
     return await res(
       ctx.json({
         user: {
-          ...user,
+          ...MOCK_USER,
           email,
           username,
         },
@@ -59,7 +59,7 @@ const handlers = [
       return await res(
         ctx.json({
           user: {
-            ...user,
+            ...MOCK_USER,
             email,
           },
         })
