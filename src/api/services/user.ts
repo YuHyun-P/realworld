@@ -1,7 +1,7 @@
 import { type User } from "~/types";
 import instance from "../base";
 
-type LoginUserRequest = {
+export type LoginUserRequest = {
   email: string;
   password: string;
 };
