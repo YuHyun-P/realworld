@@ -1,5 +1,5 @@
 import { type Tag } from "~/types";
-import instance from "../base";
+import { unauth } from "../base";
 
 type TagListResponse = {
   tags: Tag[];
@@ -7,7 +7,7 @@ type TagListResponse = {
 
 const tagApi = {
   async getList() {
-    return await instance.get<TagListResponse>("/tags");
+    return await unauth.get<TagListResponse>("/tags");
   },
 };
 
