@@ -1,5 +1,4 @@
-import { isAxiosError } from "axios";
-import { type FormEvent, useState, type ReactElement } from "react";
+import { type ReactElement } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import userApi, { type RegisterUserRequest } from "~/api/services/user";
@@ -7,24 +6,16 @@ import AuthPageLayout from "~/components/layout/AuthPageLayout";
 import RegisterForm from "~/components/pages/register/RegisterForm";
 import ErrorMessage from "~/components/common/ErrorMessage";
 import userAtom from "~/recoil/atoms/userState";
-import { type ErrorResponse } from "~/types";
 import storage from "~/utils/storage";
-import { formatErrorResponse } from "~/utils/formatter";
+import useForm from "~/hooks/useForm";
+import { type ElementsWith } from "~/types/utilType";
 
 function Register(): ReactElement {
-  const [error, setError] = useState<string[]>();
-  const [isLoading, setIsLoading] = useState(false);
   const setUser = useSetRecoilState(userAtom);
   const navigate = useNavigate();
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const { error, isLoading, handleSubmit } = useForm(async (e) => {
     const payload = e.currentTarget
-      .elements as typeof e.currentTarget.elements & {
-      username: { value: string };
-      email: { value: string };
-      password: { value: string };
-    };
+      .elements as ElementsWith<RegisterUserRequest>;
 
     const {
       username: { value: username },
@@ -32,28 +23,14 @@ function Register(): ReactElement {
       password: { value: password },
     } = payload;
 
-    await fetchRegister({ username, email, password });
-  };
+    const {
+      data: { user },
+    } = await userApi.register({ username, email, password });
 
-  const fetchRegister = async (payload: RegisterUserRequest): Promise<void> => {
-    setIsLoading(true);
-    try {
-      const {
-        data: { user },
-      } = await userApi.register(payload);
-
-      setUser(user);
-      storage("local").setItem("token", user.token);
-      navigate("/");
-    } catch (err) {
-      if (isAxiosError<ErrorResponse>(err)) {
-        setError(formatErrorResponse(err));
-      } else {
-        setError(["something went wrong"]);
-      }
-    }
-    setIsLoading(false);
-  };
+    setUser(user);
+    storage("local").setItem("token", user.token);
+    navigate("/");
+  });
 
   return (
     <AuthPageLayout>
