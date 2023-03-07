@@ -6,12 +6,17 @@ import { type User } from "~/types";
 interface SettingFormProps {
   user: User;
   onSubmit: FormEventHandler<HTMLFormElement>;
+  disabled: boolean;
 }
 
-function SettingForm({ user, onSubmit }: SettingFormProps): ReactElement {
+function SettingForm({
+  user,
+  onSubmit,
+  disabled,
+}: SettingFormProps): ReactElement {
   return (
     <form onSubmit={onSubmit}>
-      <fieldset>
+      <fieldset disabled={disabled}>
         <Input
           type="text"
           placeholder="URL of profile picture"
