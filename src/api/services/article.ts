@@ -1,5 +1,5 @@
 import { type Article } from "~/types";
-import instance from "../base";
+import { auth } from "../base";
 
 export type PaginationParams = {
   limit?: number;
@@ -26,37 +26,37 @@ type ArticleResponse = {
 };
 
 const articleApi = {
-  async getRecentList(params: PaginationParams) {
-    return await instance.get<ArticleListResponse>("/articles/feed", {
+  async getFollowFeedList(params: PaginationParams) {
+    return await auth.get<ArticleListResponse>("/articles/feed", {
       params,
     });
   },
   async getList(params: ArticleListParams) {
-    return await instance.get<ArticleListResponse>("/articles/feed", {
+    return await auth.get<ArticleListResponse>("/articles", {
       params,
     });
   },
   async create(payload: CreateArticleRequest) {
-    return await instance.post<ArticleResponse>("/articles", {
+    return await auth.post<ArticleResponse>("/articles", {
       article: payload,
     });
   },
   async getDetail(slug: string) {
-    return await instance.get<ArticleResponse>(`/articles/${slug}`);
+    return await auth.get<ArticleResponse>(`/articles/${slug}`);
   },
   async update(slug: string, payload: UpdateArticleRequest) {
-    return await instance.put<ArticleResponse>(`/articles/${slug}`, {
+    return await auth.put<ArticleResponse>(`/articles/${slug}`, {
       article: payload,
     });
   },
   async delete(slug: string) {
-    return await instance.delete(`/articles/${slug}`);
+    return await auth.delete(`/articles/${slug}`);
   },
   async favorite(slug: string) {
-    return await instance.post<ArticleResponse>(`/articles/${slug}/favorite`);
+    return await auth.post<ArticleResponse>(`/articles/${slug}/favorite`);
   },
   async unfavorite(slug: string) {
-    return await instance.delete<ArticleResponse>(`/articles/${slug}/favorite`);
+    return await auth.delete<ArticleResponse>(`/articles/${slug}/favorite`);
   },
 };
 

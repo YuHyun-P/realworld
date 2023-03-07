@@ -1,5 +1,5 @@
 import { type User } from "~/types";
-import instance from "../base";
+import { unauth, auth } from "../base";
 
 export type LoginUserRequest = {
   email: string;
@@ -13,16 +13,16 @@ export type UserResponse = { user: User };
 
 const userApi = {
   async login(payload: LoginUserRequest) {
-    return await instance.post<UserResponse>("/users/login", { user: payload });
+    return await unauth.post<UserResponse>("/users/login", { user: payload });
   },
   async register(payload: RegisterUserRequest) {
-    return await instance.post<UserResponse>("/users", { user: payload });
+    return await unauth.post<UserResponse>("/users", { user: payload });
   },
   async getUser() {
-    return await instance.post<UserResponse>("/user");
+    return await auth.post<UserResponse>("/user");
   },
   async updateUser(payload: UpdateUserRequest) {
-    return await instance.post<UserResponse>("/user", { user: payload });
+    return await auth.post<UserResponse>("/user", { user: payload });
   },
 };
 
