@@ -8,7 +8,8 @@ export type LoginUserRequest = {
 export type RegisterUserRequest = LoginUserRequest & {
   username: string;
 };
-type UpdateUserRequest = Partial<User>;
+export type UpdateUserRequest = RegisterUserRequest &
+  Pick<User, "bio" | "image">;
 export type UserResponse = { user: User };
 
 const userApi = {
@@ -22,7 +23,7 @@ const userApi = {
     return await auth.post<UserResponse>("/user");
   },
   async updateUser(payload: UpdateUserRequest) {
-    return await auth.post<UserResponse>("/user", { user: payload });
+    return await auth.put<UserResponse>("/user", { user: payload });
   },
 };
 
