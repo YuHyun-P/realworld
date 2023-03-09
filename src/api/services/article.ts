@@ -17,7 +17,7 @@ type CreateArticleRequest = Pick<
 >;
 type UpdateArticleRequest = Omit<CreateArticleRequest, "tagList">;
 
-type ArticleListResponse = {
+export type ArticleListResponse = {
   articles: Article[];
   articlesCount: number;
 };

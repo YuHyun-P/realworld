@@ -2,24 +2,32 @@ import { type ReactElement } from "react";
 import TabItem from "~/components/common/Tabs/TabItem";
 import Tabs from "~/components/common/Tabs/index";
 import { type Tag } from "~/types";
+import { useRecoilValue } from "recoil";
+import userAtom from "~/recoil/atoms/userState";
 
 interface FeedNavProps {
-  tag: Tag | null;
+  tag: Tag;
   defaultTag: string;
   onChange: (feed: string) => void;
 }
 
 function FeedNav({ tag, defaultTag, onChange }: FeedNavProps): ReactElement {
+  const user = useRecoilValue(userAtom);
+
+  const hasAdditionalTag = tag !== "user" && tag !== "global";
+
   return (
     <div className="feed-toggle">
       <Tabs defaultValue={tag ?? defaultTag} onChange={onChange} key={tag}>
-        <TabItem to="/" name="user">
-          Your Feed
-        </TabItem>
+        {user !== null ? (
+          <TabItem to="/" name="user">
+            Your Feed
+          </TabItem>
+        ) : null}
         <TabItem to="/" name="global">
           Global Feed
         </TabItem>
-        {tag !== null ? (
+        {hasAdditionalTag ? (
           <TabItem to="/" name={tag}>
             <i className="ion-pound" /> {tag}
           </TabItem>
