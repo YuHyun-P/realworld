@@ -1,15 +1,17 @@
-import { useState, type ReactElement } from "react";
+import { useLayoutEffect, useState, type ReactElement } from "react";
 import { Link } from "react-router-dom";
 
 interface PaginationProps {
   total: number;
-  initialPage: number;
+  initialPage?: number;
+  page: number;
   onChange: (page: number) => void;
 }
 
 function Pagination({
   total,
-  initialPage,
+  initialPage = 1,
+  page,
   onChange,
 }: PaginationProps): ReactElement {
   const [current, setCurrent] = useState(initialPage);
@@ -17,6 +19,10 @@ function Pagination({
     onChange(nextPage);
     setCurrent(nextPage);
   };
+
+  useLayoutEffect(() => {
+    setCurrent(page);
+  }, [page]);
 
   return (
     <nav>

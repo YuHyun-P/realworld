@@ -45,7 +45,7 @@ function Home(): ReactElement {
             <PreviewList articles={data.articles} />
             {isLoading && <Loading />}
             <Pagination
-              initialPage={query.page}
+              page={query.page}
               total={Math.ceil(data.articlesCount / PAGE_SIZE)}
               onChange={setPage}
             />

@@ -49,6 +49,7 @@ function Profile(): ReactElement | null {
               onChange={(page) => {
                 console.log(page);
               }}
+              page={1}
             />
           </div>
         </div>
