@@ -8,8 +8,9 @@ import Content from "~/components/pages/article/Content";
 import articles from "~/test_data/articles";
 import comments from "~/test_data/comments";
 import user from "~/test_data/user";
+import { type Article } from "~/types";
 
-function Article(): ReactElement {
+function ArticlePage(): ReactElement {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { articleSlug } = useParams();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -25,12 +26,14 @@ function Article(): ReactElement {
     console.log(article.author.username, value);
     setArticle({ ...article, author: { ...article.author, following: value } });
   };
-  const handleToggleFavorite = (value: boolean): void => {
-    console.log(article.slug, value);
+  const handleToggleFavorite = ({
+    favorited,
+    favoritesCount,
+  }: Pick<Article, "favorited" | "favoritesCount">): void => {
     setArticle({
       ...article,
-      favorited: value,
-      favoritesCount: article.favoritesCount + (value ? 1 : -1),
+      favorited,
+      favoritesCount,
     });
   };
 
@@ -75,4 +78,4 @@ function Article(): ReactElement {
   );
 }
 
-export default Article;
+export default ArticlePage;

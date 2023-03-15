@@ -8,7 +8,7 @@ import Register from "./Register";
 import Login from "./Login";
 import Settings from "./Settings";
 import Editor from "./Editor";
-import Article from "./Article";
+import ArticlePage from "./Article";
 import Profile from "./Profile";
 
 function Router(): ReactElement {
@@ -48,7 +48,7 @@ function Router(): ReactElement {
             </RequireAuth>
           }
         />
-        <Route path="article/:articleSlug" element={<Article />} />
+        <Route path="article/:articleSlug" element={<ArticlePage />} />
         <Route path="profile/:username/favorites?" element={<Profile />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Route>

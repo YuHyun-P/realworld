@@ -7,7 +7,9 @@ import MetaProfile from "./MetaProfile";
 interface ArticleMetaProps {
   article: Article;
   onToggleFollow: (value: boolean) => void;
-  onToggleFavorite: (value: boolean) => void;
+  onToggleFavorite: (
+    value: Pick<Article, "favorited" | "favoritesCount">
+  ) => void;
 }
 
 function ArticleMeta({
@@ -30,9 +32,11 @@ function ArticleMeta({
       &nbsp;
       <FavoriteButton
         slug={article.slug}
-        defaultValue={article.favorited}
-        defaultCount={article.favoritesCount}
-        onToggleFavorite={onToggleFavorite}
+        initialState={{
+          favorited: article.favorited,
+          favoritesCount: article.favoritesCount,
+        }}
+        onToggle={onToggleFavorite}
       />
     </div>
   );

@@ -21,7 +21,7 @@ export type ArticleListResponse = {
   articles: Article[];
   articlesCount: number;
 };
-type ArticleResponse = {
+export type ArticleResponse = {
   article: Article;
 };
 
