@@ -1,78 +1,59 @@
-import { useEffect, useState, type ReactElement } from "react";
+import { type ReactElement } from "react";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import useFavorite from "~/hooks/useFavorite";
+import userAtom from "~/recoil/atoms/userState";
+import { type Article } from "~/types";
 
 interface FavoriteButtonProps {
   slug: string;
-  defaultValue: boolean;
-  defaultCount: number;
+  initialState: Pick<Article, "favorited" | "favoritesCount">;
   compact?: boolean;
-  onToggleFavorite?: (value: boolean) => void;
+  onToggle?: (value: Pick<Article, "favorited" | "favoritesCount">) => void;
 }
 
 function FavoriteButton({
   slug,
-  defaultValue,
-  defaultCount,
+  initialState,
   compact = false,
-  onToggleFavorite,
+  onToggle,
 }: FavoriteButtonProps): ReactElement {
-  const [favorite, setFavorite] = useState({
-    isLoading: false,
-    favorited: defaultValue,
-    favoritesCount: defaultCount,
-  });
-
-  useEffect(() => {
-    if (favorite.isLoading) {
-      return;
-    }
-    setFavorite({
-      ...favorite,
-      favorited: defaultValue,
-      favoritesCount: defaultCount,
-    });
-  }, [defaultValue, defaultCount]);
+  const user = useRecoilValue(userAtom);
+  const {
+    data,
+    isLoading,
+    handleClick: onClick,
+  } = useFavorite(slug, initialState, onToggle);
+  const navigate = useNavigate();
 
   const handleClick = (): void => {
-    // mock api
-    setFavorite((prev) => ({
-      ...prev,
-      isLoading: true,
-    }));
+    if (user === null) {
+      navigate("/login");
+      return;
+    }
 
-    setTimeout(() => {
-      setFavorite((prev) => ({
-        ...prev,
-        isLoading: false,
-        favorited: !prev.favorited,
-        favoritesCount: prev.favorited
-          ? prev.favoritesCount - 1
-          : prev.favoritesCount + 1,
-      }));
-      if (onToggleFavorite !== undefined) {
-        onToggleFavorite(!favorite.favorited);
-      }
-    }, 1000);
+    onClick();
   };
 
   return (
     <button
       className={`btn btn-sm ${compact ? "pull-xs-right" : ""} ${
-        favorite.favorited ? "btn-primary" : "btn-outline-primary"
+        data.favorited ? "btn-primary" : "btn-outline-primary"
       }`}
       type="button"
       onClick={handleClick}
-      disabled={favorite.isLoading}
+      disabled={isLoading}
     >
       <i className="ion-heart" />{" "}
       {!compact && (
         <span>
-          {favorite.favorited ? "Unfavorite Article" : "Favorite Article"}{" "}
+          {data.favorited ? "Unfavorite Article" : "Favorite Article"}{" "}
         </span>
       )}
       {compact ? (
-        favorite.favoritesCount
+        data.favoritesCount
       ) : (
-        <span className="counter">({favorite.favoritesCount})</span>
+        <span className="counter">({data.favoritesCount})</span>
       )}
     </button>
   );

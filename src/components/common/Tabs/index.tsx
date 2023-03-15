@@ -25,6 +25,7 @@ function Tabs({ children, defaultValue, onChange }: TabsProps): ReactElement {
   );
 
   const handleChangeWrapper = (name: string) => () => {
+    if (name === current) return;
     setCurrent(name);
     onChange(name);
   };
